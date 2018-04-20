@@ -68,7 +68,7 @@ open class PhotoBrowser: UIViewController {
     }()
     
     /// 容器
-    private(set) lazy var collectionView: UICollectionView = { [unowned self] in
+    public private(set) lazy var collectionView: UICollectionView = { [unowned self] in
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = UIColor.clear
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
@@ -118,13 +118,7 @@ open class PhotoBrowser: UIViewController {
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
-//
-// MARK: - 公开方法
-//
-
-extension PhotoBrowser {
     /// 展示，完整参数
     /// - parameter presentingVC: 由谁 present 出图片浏览器
     /// - parameter openIndex: 打开是显示哪张图片，从0开始
