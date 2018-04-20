@@ -224,7 +224,7 @@ extension PhotoBrowser {
 
 extension PhotoBrowser {
     /// 遮盖状态栏。以改变windowLevel的方式遮盖
-    private func coverStatusBar(_ cover: Bool) {
+    public func coverStatusBar(_ cover: Bool) {
         let win = view.window ?? UIApplication.shared.keyWindow
         guard let window = win else {
             return
