@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-public class PhotoBrowser: UIViewController {
+open class PhotoBrowser: UIViewController {
     
     //
     // MARK: - 公开属性
@@ -166,18 +166,18 @@ extension PhotoBrowser {
 
 extension PhotoBrowser {
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 遮盖状态栏
         coverStatusBar(true)
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // 页面出来后，再显示页码指示器
         // 多于一张图才会显示
@@ -187,12 +187,12 @@ extension PhotoBrowser {
         }
     }
     
-    public override func viewWillLayoutSubviews() {
+    open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         layoutViews()
     }
     
-    public override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // 屏幕旋转后的调整
         let indexPath = IndexPath.init(item: self.currentIndex, section: 0)
@@ -204,12 +204,12 @@ extension PhotoBrowser {
     }
     
     /// 支持旋转
-    public override var shouldAutorotate: Bool {
+    open override var shouldAutorotate: Bool {
         return true
     }
     
     /// 支持旋转的方向
-    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .all
     }
     
