@@ -68,7 +68,7 @@ open class PhotoBrowser: UIViewController {
     }()
     
     /// 容器
-    private lazy var collectionView: UICollectionView = { [unowned self] in
+    private(set) lazy var collectionView: UICollectionView = { [unowned self] in
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = UIColor.clear
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
@@ -131,7 +131,7 @@ extension PhotoBrowser {
     /// - parameter delegate: 浏览器协议代理
     /// - parameter pageControlDelegate: 页码指示器。默认
     /// - parameter animationType: 转场动画类型，默认为缩放动画`scale`
-    public class func show(byViewController presentingVC: UIViewController,
+    open class func show(byViewController presentingVC: UIViewController,
                            delegate: PhotoBrowserDelegate,
                            openIndex: Int,
                            pageControlDelegate: PhotoBrowserPageControlDelegate? = nil,
@@ -142,20 +142,20 @@ extension PhotoBrowser {
     }
     
     /// 指定打开图片组中的哪张
-    public func setOpenIndex(_ index: Int) {
+    open func setOpenIndex(_ index: Int) {
         currentIndex = index
     }
     
     /// 展示图片浏览器
     /// - parameter presentingVC: 由谁 present 出图片浏览器
-    public func show(byViewController presentingVC: UIViewController) {
+    open func show(byViewController presentingVC: UIViewController) {
         presentingVC.present(self, animated: true, completion: nil)
     }
     
     /// 关闭浏览器
     /// 不会触发`浏览器即将关闭/浏览器已经关闭`回调
     /// - parameter animated: 是否需要关闭转场动画
-    public func dismiss(animated: Bool) {
+    open func dismiss(animated: Bool) {
         dismiss(animated: animated, completion: nil)
     }
 }
